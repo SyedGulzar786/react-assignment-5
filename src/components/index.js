@@ -1,2 +1,3 @@
 import BasicForm from "./BasicForm.jsx";
-export { BasicForm };
+import Counter from "./Counter.jsx";
+export { BasicForm, Counter };

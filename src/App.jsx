@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BasicForm } from './components';
+import { BasicForm, Counter } from './components';
 import Button from 'react-bootstrap/Button';
 
 function App() {
@@ -26,10 +26,10 @@ function App() {
   return (
     <div className='container'>
       <h1>{name}</h1>
-      <h1>{count}</h1>
+      {count < 10 && <Counter count={count} />}
       <button onClick={()=>{setName("Gulzar")}}>Update Name</button>
-      <Button className="me-2" onClick={() => setCount(count + 1)}>Increment</Button>
-      <Button variant="secondary" onClick={() => setCount(count - 1)}>Decrement</Button>
+      <Button className="me-2" onClick={() => setCount(count + 1)}>+</Button>
+      <Button variant="secondary" onClick={() => setCount(count - 1)}>-</Button>
     </div>
   );
 }
