@@ -1,19 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BasicForm } from './components';
 import Button from 'react-bootstrap/Button';
 
 function App() {
-  const [type, setType] = useState('login');
+  const [count, setCount] = useState(0);
+  const [value, setValue] = useState("");
+  const [name, setName] = useState("ali");
+
+  useEffect(() => {
+    console.log("case 1", count);
+  }, [])
+
+  useEffect(() => {
+    console.log("Case 2", count);
+  })
+
+  useEffect(() => {
+    console.log("Case 3", count);
+  },[count])
+
+  useEffect(() => {
+    console.log("Case 4", count);
+  },[count,name])
 
   return (
     <div className='container'>
-      <div className="row justify-content-center p-5">
-        <div className="col-6">
-          <h2>{type === "login" ? "Login" : "Register"}</h2>
-          <BasicForm />
-          <Button onClick={()=>{{type === "login"  ? setType("register") : setType("login")}}} variant="link">{type === "login" ? "Register" : "Login"} Now</Button>
-        </div>
-      </div>
+      <h1>{name}</h1>
+      <h1>{count}</h1>
+      <button onClick={()=>{setName("Gulzar")}}>Update Name</button>
+      <Button className="me-2" onClick={() => setCount(count + 1)}>Increment</Button>
+      <Button variant="secondary" onClick={() => setCount(count - 1)}>Decrement</Button>
     </div>
   );
 }
