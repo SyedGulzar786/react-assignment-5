@@ -6,7 +6,7 @@ const Profile = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     console.log(location, searchParams);
     console.log(searchParams.get("name"));
-    // console.log(setSearchParams("name"));
+
     return (
         <div>
             <h1>Profile ({username})</h1>
