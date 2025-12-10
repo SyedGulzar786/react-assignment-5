@@ -1,19 +1,17 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-const onFinish = values => {
-  console.log('Success:', values);
-};
+
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);
 };
-const SignupForm = () => (
+const SignupForm = ({ registerUser }) => (
   <Form
     name="signupForm"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
     style={{ maxWidth: 600 }}
-    initialValues={{username:"Admin", remember: true }}
-    onFinish={onFinish}
+    initialValues={{ username: "Admin", remember: true }}
+    onFinish={registerUser}
     onFinishFailed={onFinishFailed}
     autoComplete="off"
   >
@@ -22,7 +20,7 @@ const SignupForm = () => (
       name="email"
       rules={[
         { required: true, message: 'Please input your email!' },
-      { pattern: "^[^\s@]+@[^\s@]+\.[^\s@]+$", message: 'Please enter a valid email address!' }
+        { pattern: "^[^\s@]+@[^\s@]+\.[^\s@]+$", message: 'Please enter a valid email address!' }
       ]}
     >
       <Input />
@@ -55,4 +53,5 @@ const SignupForm = () => (
     </Form.Item>
   </Form>
 );
+
 export default SignupForm;
