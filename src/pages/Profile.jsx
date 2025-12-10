@@ -1,6 +1,6 @@
 import { useLocation, useParams, useSearchParams } from "react-router-dom"
 
-const Profile = () => {
+const ProfilePage = () => {
     const { username } = useParams();
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -25,4 +25,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default ProfilePage;
