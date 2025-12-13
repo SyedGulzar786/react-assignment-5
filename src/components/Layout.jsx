@@ -1,6 +1,8 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link 
+    // , useNavigate
+ } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
 // const items = [{ key: '/home', label: 'Home' }, { key: '/profile', label: 'Profile' }] ;
 const AppLayout = ({ children }) => {
@@ -8,7 +10,7 @@ const AppLayout = ({ children }) => {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     return (
         <Layout>
             <Header
