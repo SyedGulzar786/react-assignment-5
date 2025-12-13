@@ -23,7 +23,7 @@ console.log(error.message);
     <div className='container'>
       <div className="row">
         <div className="">
-          <h1>Signup Page</h1>
+          <h1 className="mb-5">Signup Page</h1>
           <SignupForm registerUser={registerUser} />
           Already have an account? <Link to={"/"}>Login</Link>
         </div>

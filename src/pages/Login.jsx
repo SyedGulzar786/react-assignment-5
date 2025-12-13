@@ -22,7 +22,7 @@ const Login = () => {
     <div className='container'>
       <div className="row">
         <div className="">
-          <h1>Login Page</h1>
+          <h1 className='mb-5'>Login Page</h1>
           <LoginForm loginUser={loginUser} />
           Don't have an account? <Link to={"/signup"}>Signup</Link>
         </div>

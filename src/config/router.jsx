@@ -3,7 +3,6 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import NotFind from "../components/NotFind";
-import AppLayout from "../components/Layout";
 import { useEffect, useState } from "react";
 import SignupPage from "../pages/Signup";
 import {
@@ -11,6 +10,8 @@ import {
     onAuthStateChanged
 } from "./firebase.js";
 import { Spin } from "antd";
+import AppLayout from "../components/AppLayout.jsx";
+import AuthLayout from "../components/Layout.jsx";
 
 const AppRouter = () => {
     const [isUser, setIsUser] = useState(false);
@@ -37,8 +38,8 @@ const AppRouter = () => {
                 :
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={isUser ? <Navigate to={"/profile/:username"} /> : <AppLayout><Login /></AppLayout>} />
-                        <Route path="/signup" element={isUser ? <Navigate to={"/profile/:username"} /> : <AppLayout><SignupPage /></AppLayout>} />
+                        <Route path="/" element={isUser ? <Navigate to={"/profile/:username"} /> : <AuthLayout><Login /></AuthLayout>} />
+                        <Route path="/signup" element={isUser ? <Navigate to={"/profile/:username"} /> : <AuthLayout><SignupPage /></AuthLayout>} />
                         <Route path="/home" element={<AppLayout><Home /></AppLayout>} />
                         <Route path="/profile/:username" element={isUser ? <AppLayout><Profile /></AppLayout> : <Navigate to={"/"} />} />
                         <Route path="*" element={<AppLayout><NotFind /></AppLayout>} />
