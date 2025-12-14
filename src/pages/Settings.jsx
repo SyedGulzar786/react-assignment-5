@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { Menu } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom'
 import {
-    HomeOutlined,
     SettingOutlined
 } from '@ant-design/icons';
 
@@ -15,7 +13,7 @@ function getItem(label, key, children) {
         // icon,
     };
 }
-const Settings = () => {
+const SettingsPage = () => {
     const navigate = useNavigate();
     const items = [
         getItem('Manage Settings', 'sub1', [
@@ -32,4 +30,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default SettingsPage

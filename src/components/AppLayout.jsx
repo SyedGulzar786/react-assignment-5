@@ -7,11 +7,10 @@ import {
     ProfileOutlined,
     SettingOutlined,
     UserOutlined,
-    VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 import { auth, signOut } from '../config/firebase.js';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const { Header, Sider, Content } = Layout;
@@ -59,6 +58,12 @@ const AppLayout = ({ children }) => {
                         },
                         {
                             key: '4',
+                            icon: <UserOutlined />,
+                            label: 'Users',
+                            onClick: () => navigate('/users')
+                        },
+                        {
+                            key: '5',
                             icon: <LogoutOutlined />,
                             label: 'Logout',
                             onClick: () => logoutUser()

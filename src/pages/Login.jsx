@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword
 } from "../config/firebase.js";
 
-const Login = () => {
+const LoginPage = () => {
   const loginUser = ({email, password}) => {
     console.log(email, password);
     signInWithEmailAndPassword(auth, email, password)
@@ -31,4 +31,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage
