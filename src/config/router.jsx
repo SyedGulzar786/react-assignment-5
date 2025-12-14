@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
+import Settings from "../pages/Settings.jsx";
 import NotFind from "../components/NotFind";
 import { useEffect, useState } from "react";
 import SignupPage from "../pages/Signup";
@@ -12,6 +13,8 @@ import {
 import { Spin } from "antd";
 import AppLayout from "../components/AppLayout.jsx";
 import AuthLayout from "../components/Layout.jsx";
+import SettingsTasks from "../pages/Settings/SettingsTasks.jsx";
+import SettingsMessages from "../pages/Settings/SettingsMessages.jsx";
 
 const AppRouter = () => {
     const [isUser, setIsUser] = useState(false);
@@ -32,9 +35,9 @@ const AppRouter = () => {
         <>
             {loader
                 ?
-       <div className="d-flex align-items-center justify-content-center vh-100">
-                 <Spin tip="Loading" size="large"/>
-       </div>
+                <div className="d-flex align-items-center justify-content-center vh-100">
+                    <Spin tip="Loading" size="large" />
+                </div>
                 :
                 <BrowserRouter>
                     <Routes>
@@ -43,6 +46,11 @@ const AppRouter = () => {
                         <Route path="/home" element={<AppLayout><Home /></AppLayout>} />
                         <Route path="/profile/:username" element={isUser ? <AppLayout><Profile /></AppLayout> : <Navigate to={"/"} />} />
                         <Route path="*" element={<AppLayout><NotFind /></AppLayout>} />
+                        <Route path="/settings" element={<AppLayout><Settings /></AppLayout>}>
+                            <Route path="messages" element={<SettingsMessages />} />
+                            <Route path="tasks" element={<SettingsTasks />} />
+                        </Route>
+
                     </Routes>
                 </BrowserRouter>}
         </>

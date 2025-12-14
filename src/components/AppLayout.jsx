@@ -5,6 +5,7 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     ProfileOutlined,
+    SettingOutlined,
     UserOutlined,
     VideoCameraOutlined,
 } from '@ant-design/icons';
@@ -45,10 +46,16 @@ const AppLayout = ({ children }) => {
                             onClick: () => navigate('/profile/:username')
                         },
                         {
-                            key: '3',
+                            key: '2',
                             icon: <HomeOutlined />,
                             label: 'Home',
                             onClick: () => navigate('/home')
+                        },
+                        {
+                            key: '3',
+                            icon: <SettingOutlined />,
+                            label: 'Settings',
+                            onClick: () => navigate('/settings')
                         },
                         {
                             key: '4',
